@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Табель учета | Табель</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="tabel-container">
+        <div class="tabel-header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 60 60">
+                    <rect width="60" height="60" fill="#d22" />
+                    <rect x="30" width="30" height="60" fill="#fff" />
+                </svg>
+                <h1>Табель</h1>
+            </div>
+            <div class="user-info">
+                <span id="user-display">Администратор</span>
+                <button id="logout-btn" class="btn btn-secondary">Выход</button>
+            </div>
+        </div>
+        
+        <nav class="tabel-nav">
+            <ul>
+                <li><a href="dashboard.html">Панель управления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="timesheet.html">Табель учета</a></li>
+                <li><a href="schedule.html">Графики работы</a></li>
+                <li><a href="reports.html">Отчеты</a></li>
+                <li><a href="settings.html">Настройки</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <h2>Табель учета рабочего времени</h2>
+            
+            <div class="controls">
+                <div class="form-group">
+                    <label>Подразделение:</label>
+                    <select class="form-control">
+                        <option>Магазин №42</option>
+                        <option>Магазин №56</option>
+                        <option>Магазин №78</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Период:</label>
+                    <input type="month" class="form-control" value="2023-05">
+                </div>
+                
+                <button class="btn btn-primary">Сформировать</button>
+                <button class="btn btn-secondary">Печать</button>
+                <button class="btn btn-secondary">Экспорт</button>
+                <button class="btn btn-secondary">Утвердить</button>
+            </div>
+            
+            <div class="card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ФИО</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                            <th>Итого часов</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Иванов И.И.</td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="В" class="timesheet-input"></td>
+                            <td><input type="text" value="В" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td>64</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm">Сохранить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Петрова А.С.</td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="В" class="timesheet-input"></td>
+                            <td><input type="text" value="В" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td><input type="text" value="ОТ" class="timesheet-input"></td>
+                            <td>0</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm">Сохранить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Сидоров П.А.</td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="8" class="timesheet-input"></td>
+                            <td><input type="text" value="Б" class="timesheet-input"></td>
+                            <td><input type="text" value="Б" class="timesheet-input"></td>
+                            <td><input type="text" value="В" class="timesheet-input"></td>
+                            <td><input type="text" value="В" class="timesheet-input"></td>
+                            <td><input type="text" value="Б" class="timesheet-input"></td>
+                            <td><input type="text" value="Б" class="timesheet-input"></td>
+                            <td><input type="text" value="Б" class="timesheet-input"></td>
+                            <td>24</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm">Сохранить</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="legend" style="margin-top: 15px; font-size: 0.9em;">
+                    <p><strong>В</strong> - выходной, <strong>Б</strong> - больничный, <strong>ОТ</strong> - отпуск, <strong>К</strong> - командировка</p>
+                </div>
+                
+                <div class="timesheet-codes">
+                    <h4>Коды для заполнения табеля:</h4>
+                    <button class="code-btn">8</button>
+                    <button class="code-btn">В</button>
+                    <button class="code-btn">Б</button>
+                    <button class="code-btn">ОТ</button>
+                    <button class="code-btn">К</button>
+                    <button class="code-btn">ПК</button>
+                    <button class="code-btn">У</button>
+                    <button class="code-btn">ОЖ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="tabel.js"></script>
+</body>
+</html>
+

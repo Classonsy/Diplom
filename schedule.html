@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графики работы | Табель</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="tabel-container">
+        <div class="tabel-header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 60 60">
+                    <rect width="60" height="60" fill="#d22" />
+                    <rect x="30" width="30" height="60" fill="#fff" />
+                </svg>
+                <h1>Табель</h1>
+            </div>
+            <div class="user-info">
+                <span id="user-display">Администратор</span>
+                <button id="logout-btn" class="btn btn-secondary">Выход</button>
+            </div>
+        </div>
+        
+        <nav class="tabel-nav">
+            <ul>
+                <li><a href="dashboard.html">Панель управления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="timesheet.html">Табель учета</a></li>
+                <li><a href="schedule.html">Графики работы</a></li>
+                <li><a href="reports.html">Отчеты</a></li>
+                <li><a href="settings.html">Настройки</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <h2>Графики работы</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="schedule-templates">Шаблоны графиков</button>
+                <button class="tab-btn" data-tab="employee-schedules">Графики сотрудников</button>
+                <button class="tab-btn" data-tab="schedule-planner">Планировщик смен</button>
+            </div>
+            
+            <div id="schedule-templates" class="tab-content active">
+                <div class="controls">
+                    <button class="btn btn-primary" id="add-template-btn">Добавить шаблон</button>
+                </div>
+                
+                <div class="card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Название графика</th>
+                                <th>Тип</th>
+                                <th>Часов в неделю</th>
+                                <th>Смены</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Стандартный 5/2</td>
+                                <td>Пятидневная неделя</td>
+                                <td>40</td>
+                                <td>09:00-18:00 (Пн-Пт)</td>
+                                <td>
+                                    <button class="btn btn-secondary btn-sm edit-schedule-btn">Редактировать</button>
+                                    <button class="btn btn-secondary btn-sm clone-schedule-btn">Клонировать</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Сменный 2/2</td>
+                                <td>Два через два</td>
+                                <td>36</td>
+                                <td>08:00-20:00 (2 дня через 2)</td>
+                                <td>
+                                    <button class="btn btn-secondary btn-sm edit-schedule-btn">Редактировать</button>
+                                    <button class="btn btn-secondary btn-sm clone-schedule-btn">Клонировать</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Вечерний магазин</td>
+                                <td>Скользящий график</td>
+                                <td>40</td>
+                                <td>14:00-23:00 (5 дней)</td>
+                                <td>
+                                    <button class="btn btn-secondary btn-sm edit-schedule-btn">Редактировать</button>
+                                    <button class="btn btn-secondary btn-sm clone-schedule-btn">Клонировать</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div id="employee-schedules" class="tab-content" style="display: none;">
+                <div class="controls">
+                    <div class="form-group">
+                        <label>Подразделение:</label>
+                        <select class="form-control">
+                            <option>Магазин №42</option>
+                            <option>Магазин №56</option>
+                            <option>Магазин №78</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Месяц:</label>
+                        <input type="month" class="form-control" value="2023-05">
+                    </div>
+                    
+                    <button class="btn btn-primary" id="show-schedules-btn">Показать</button>
+                    <button class="btn btn-secondary" id="print-schedules-btn">Печать</button>
+                </div>
+                
+                <div class="card">
+                    <div class="schedules-calendar">
+                        <!-- Календарь графиков работы будет добавлен с помощью JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div id="schedule-planner" class="tab-content" style="display: none;">
+                <!-- Содержимое планировщика смен будет добавлено с помощью JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="tabel.js"></script>
+    <script src="schedule.js"></script>
+</body>
+</html>
+

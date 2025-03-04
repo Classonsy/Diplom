@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты | Табель</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="tabel-container">
+        <div class="tabel-header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 60 60">
+                    <rect width="60" height="60" fill="#d22" />
+                    <rect x="30" width="30" height="60" fill="#fff" />
+                </svg>
+                <h1>Табель</h1>
+            </div>
+            <div class="user-info">
+                <span id="user-display">Администратор</span>
+                <button id="logout-btn" class="btn btn-secondary">Выход</button>
+            </div>
+        </div>
+        
+        <nav class="tabel-nav">
+            <ul>
+                <li><a href="dashboard.html">Панель управления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="timesheet.html">Табель учета</a></li>
+                <li><a href="schedule.html">Графики работы</a></li>
+                <li><a href="reports.html">Отчеты</a></li>
+                <li><a href="settings.html">Настройки</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <h2>Отчеты</h2>
+            
+            <div class="controls">
+                <div class="form-group">
+                    <label>Тип отчета:</label>
+                    <select class="form-control" id="report-type">
+                        <option value="staff">Штатное расписание</option>
+                        <option value="turnover">Анализ текучести кадров</option>
+                        <option value="performance">Производительность персонала</option>
+                        <option value="salary">Фонд оплаты труда</option>
+                        <option value="time">Анализ рабочего времени</option>
+                        <option value="skills">Карта компетенций</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Период:</label>
+                    <select class="form-control" id="report-period">
+                        <option value="current-month">Текущий месяц</option>
+                        <option value="last-month">Прошлый месяц</option>
+                        <option value="quarter">Квартал</option>
+                        <option value="year">Текущий год</option>
+                        <option value="custom">Произвольный период</option>
+                    </select>
+                </div>
+                
+                <div class="form-group date-range" style="display: none;">
+                    <label>С:</label>
+                    <input type="date" class="form-control" id="date-from">
+                    <label>По:</label>
+                    <input type="date" class="form-control" id="date-to">
+                </div>
+                
+                <button class="btn btn-primary" id="generate-report-btn">Сформировать отчет</button>
+                <button class="btn btn-secondary" id="export-report-btn">Экспорт в Excel</button>
+                <button class="btn btn-secondary" id="print-report-btn">Печать</button>
+            </div>
+            
+            <div class="card">
+                <div id="report-content">
+                    <div id="staff-report" class="report-section">
+                        <h3>Штатное расписание на Май 2023</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Подразделение</th>
+                                    <th>Должность</th>
+                                    <th>Количество ставок</th>
+                                    <th>Занято</th>
+                                    <th>Вакантно</th>
+                                    <th>Укомплектованность, %</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Магазин №42</td>
+                                    <td>Продавец-кассир</td>
+                                    <td>8</td>
+                                    <td>7</td>
+                                    <td>1</td>
+                                    <td>87.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Магазин №42</td>
+                                    <td>Старший продавец</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>Магазин №42</td>
+                                    <td>Товаровед</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>Магазин №42</td>
+                                    <td>Заведующий магазином</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>Магазин №56</td>
+                                    <td>Продавец-кассир</td>
+                                    <td>6</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>66.7</td>
+                                </tr>
+                                <tr>
+                                    <td>Магазин №56</td>
+                                    <td>Старший продавец</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>50</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2">Итого:</th>
+                                    <th>20</th>
+                                    <th>16</th>
+                                    <th>4</th>
+                                    <th>80.0</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        
+                        <div id="report-chart" style="margin-top: 30px; height: 300px;">
+                            <svg width="100%" height="100%" viewBox="0 0 800 300">
+                                <rect x="50" y="20" width="700" height="230" fill="#f9f9f9" stroke="#ddd" />
+                                
+                                <!-- Оси -->
+                                <line x1="50" y1="250" x2="750" y2="250" stroke="#333" stroke-width="2" />
+                                <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="2" />
+                                
+                                <!-- Подписи по оси X -->
+                                <text x="150" y="270" text-anchor="middle" font-size="12">Магазин №42</text>
+                                <text x="450" y="270" text-anchor="middle" font-size="12">Магазин №56</text>
+                                
+                                <!-- Подписи по оси Y -->
+                                <text x="40" y="250" text-anchor="end" font-size="12">0</text>
+                                <text x="40" y="190" text-anchor="end" font-size="12">5</text>
+                                <text x="40" y="130" text-anchor="end" font-size="12">10</text>
+                                <text x="40" y="70" text-anchor="end" font-size="12">15</text>
+                                
+                                <!-- Горизонтальные линии -->
+                                <line x1="50" y1="190" x2="750" y2="190" stroke="#ddd" />
+                                <line x1="50" y1="130" x2="750" y2="130" stroke="#ddd" />
+                                <line x1="50" y1="70" x2="750" y2="70" stroke="#ddd" />
+                                
+                                <!-- Столбцы -->
+                                <rect x="100" y="130" width="100" height="120" fill="#d22" />
+                                <rect x="400" y="170" width="100" height="80" fill="#d22" />
+                                
+                                <!-- Текст над столбцами -->
+                                <text x="150" y="120" text-anchor="middle" font-size="14" fill="#333">12</text>
+                                <text x="450" y="160" text-anchor="middle" font-size="14" fill="#333">8</text>
+                                
+                                <!-- Легенда -->
+                                <rect x="600" y="30" width="15" height="15" fill="#d22" />
+                                <text x="625" y="43" font-size="12">Количество сотрудников</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="tabel.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>

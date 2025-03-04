@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления | Табель</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="tabel-container">
+        <div class="tabel-header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 60 60">
+                    <rect width="60" height="60" fill="#d22" />
+                    <rect x="30" width="30" height="60" fill="#fff" />
+                </svg>
+                <h1>Табель</h1>
+            </div>
+            <div class="user-info">
+                <span id="user-display">Администратор</span>
+                <button id="logout-btn" class="btn btn-secondary">Выход</button>
+            </div>
+        </div>
+        
+        <nav class="tabel-nav">
+            <ul>
+                <li><a href="dashboard.html">Панель управления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="timesheet.html">Табель учета</a></li>
+                <li><a href="schedule.html">Графики работы</a></li>
+                <li><a href="reports.html">Отчеты</a></li>
+                <li><a href="settings.html">Настройки</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <h2>Панель управления</h2>
+            
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Статистика персонала</h3>
+                    <p>Всего сотрудников: <strong>142</strong></p>
+                    <p>Активных: <strong>128</strong></p>
+                    <p>В отпуске: <strong>10</strong></p>
+                    <p>На больничном: <strong>4</strong></p>
+                    <a href="employees.html" class="btn btn-primary">Управление сотрудниками</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Рабочее время за неделю</h3>
+                    <p>Запланировано часов: <strong>5120</strong></p>
+                    <p>Отработано часов: <strong>4980</strong></p>
+                    <p>Эффективность: <strong>97.3%</strong></p>
+                    <a href="timesheet.html" class="btn btn-primary">Учет рабочего времени</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Последние события</h3>
+                    <ul>
+                        <li>Иванов И.И. принят на работу (02.05.2023)</li>
+                        <li>Петров П.П. переведен на должность старшего кассира (28.04.2023)</li>
+                        <li>Сидорова А.В. ушла в отпуск (25.04.2023)</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Задачи на сегодня</h3>
+                    <ul>
+                        <li>Провести собеседование с кандидатами (3)</li>
+                        <li>Заполнить табель учета рабочего времени</li>
+                        <li>Подготовить отчет по эффективности</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="tabel.js"></script>
+</body>
+</html>
+
